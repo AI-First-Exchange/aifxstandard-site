@@ -41,9 +41,9 @@ export function ToolsOverviewSection() {
         {toolCards.map((tool) => (
           <Card
             key={tool.name}
-            className="tool-showcase flex h-full flex-col gap-8 p-7 sm:p-8"
+            className="tool-showcase flex h-full flex-col gap-7 p-6 sm:p-7"
           >
-            <div className="flex flex-1 flex-col gap-7">
+            <div className="flex flex-1 flex-col gap-6">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <p className="section-kicker text-xs font-semibold uppercase">
                   {tool.name === "AIFX Desktop"
@@ -55,7 +55,7 @@ export function ToolsOverviewSection() {
                 </span>
               </div>
 
-              <div className="grid flex-1 gap-6 md:grid-cols-[minmax(8.5rem,10.5rem)_minmax(0,1fr)] md:items-center">
+              <div className="grid flex-1 gap-5 md:grid-cols-[minmax(8rem,10rem)_minmax(0,1fr)] md:items-center">
                 <ProductVisual
                   src={tool.imageSrc}
                   alt={tool.imageAlt}
@@ -65,10 +65,10 @@ export function ToolsOverviewSection() {
                   <p className="section-kicker text-xs font-semibold uppercase">
                     Tooling
                   </p>
-                  <h3 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+                  <h3 className="mt-3 text-[1.75rem] font-semibold tracking-tight text-white">
                     {tool.name}
                   </h3>
-                  <p className="mt-3 max-w-[34rem] text-base leading-8 text-[var(--muted)]">
+                  <p className="mt-3 max-w-[34rem] text-[0.98rem] leading-7 text-[var(--muted)]">
                     {tool.description}
                   </p>
                 </div>

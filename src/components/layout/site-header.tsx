@@ -2,8 +2,8 @@ import { navItems } from "@/data/home-content";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 px-6 pt-5 sm:px-8 lg:px-10">
-      <div className="glass-panel mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border border-[color:var(--line)] px-4 py-3 sm:px-6">
+    <header className="sticky top-0 z-50 px-5 pt-4 sm:px-7 lg:px-8">
+      <div className="glass-panel mx-auto flex w-full max-w-[var(--content-max-width)] items-center justify-between rounded-full border border-[color:var(--line)] px-4 py-2.5 sm:px-5">
         <a
           href="#top"
           className="flex items-center gap-3 rounded-full px-2 py-1 transition hover:bg-white/[0.03] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
@@ -14,7 +14,7 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}

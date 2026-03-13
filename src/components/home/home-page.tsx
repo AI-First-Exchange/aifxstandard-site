@@ -1,3 +1,4 @@
+import { ContactSection } from "@/components/home/contact-section";
 import { FormatsOverviewSection } from "@/components/home/formats-overview-section";
 import { HeroSection } from "@/components/home/hero-section";
 import { OpenStandardCta } from "@/components/home/open-standard-cta";
@@ -20,6 +21,7 @@ export function HomePage() {
         <SignalSection />
         <OpenStandardCta />
         <SupportSection />
+        <ContactSection />
       </main>
       <SiteFooter />
     </div>

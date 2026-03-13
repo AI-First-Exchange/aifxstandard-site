@@ -16,20 +16,20 @@ export function FormatsOverviewSection() {
         {formatCards.map((format) => (
           <Card
             key={format.id}
-            className="format-module group flex h-full flex-col justify-between gap-10 p-7 sm:p-8"
+            className="format-module group flex h-full flex-col justify-between gap-8 p-6 sm:p-7"
           >
-            <div className="space-y-6">
+            <div className="space-y-5">
               <div className="flex items-center justify-between gap-4">
                 <div className="inline-flex rounded-full border border-sky-300/18 bg-sky-300/8 px-3 py-1 text-xs font-semibold tracking-[0.24em] text-sky-100/88 uppercase">
                   {format.name}
                 </div>
                 <FormatIcon kind={format.icon} />
               </div>
-              <div className="space-y-3">
-                <h3 className="text-2xl font-semibold tracking-tight text-white">
+              <div className="space-y-2.5">
+                <h3 className="text-[1.55rem] font-semibold tracking-tight text-white">
                   {format.title}
                 </h3>
-                <p className="text-base leading-7 text-[var(--muted)]">
+                <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
                   {format.description}
                 </p>
               </div>

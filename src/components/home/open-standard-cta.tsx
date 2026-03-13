@@ -3,17 +3,17 @@ import { Card } from "@/components/ui/card";
 
 export function OpenStandardCta() {
   return (
-    <SectionShell id="open-standard" className="pb-14 pt-8">
-      <Card className="cta-minimal overflow-hidden p-8 sm:p-10 lg:p-12">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl space-y-5">
+    <SectionShell id="open-standard" className="pb-12 pt-6">
+      <Card className="cta-minimal overflow-hidden p-7 sm:p-8 lg:p-10">
+        <div className="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl space-y-4">
             <p className="section-kicker text-xs font-semibold uppercase">
               Open Standard
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-[clamp(1.9rem,3.2vw,2.45rem)] font-semibold tracking-tight text-white">
               Open Standard. Open Source.
             </h2>
-            <p className="text-base leading-8 text-[var(--muted)] sm:text-lg">
+            <p className="text-[0.98rem] leading-7 text-[var(--muted)] sm:text-[1.02rem]">
               AIFX is built to be inspectable, portable, and easy to adopt
               across creative workflows and software platforms.
             </p>

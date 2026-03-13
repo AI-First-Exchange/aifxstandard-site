@@ -10,9 +10,9 @@ export function SupportSection() {
       description="AIFX is an open standard for packaging AI-generated media with declared authorship, provenance metadata, and verifiable integrity."
       className="pb-10"
     >
-      <Card className="max-w-3xl p-8 sm:p-10">
-        <div className="space-y-6">
-          <p className="text-base leading-8 text-[var(--muted)] sm:text-lg">
+      <Card className="max-w-3xl p-7 sm:p-8">
+        <div className="space-y-5">
+          <p className="text-[0.98rem] leading-7 text-[var(--muted)] sm:text-[1.02rem]">
             Support helps fund development of the formats, tools, and
             documentation that power the AIFX ecosystem.
           </p>
