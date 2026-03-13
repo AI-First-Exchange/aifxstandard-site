@@ -1,0 +1,26 @@
+[
+  {
+    "id": "signal-1",
+    "title": "Provenance is becoming a product requirement, not a research topic",
+    "source": "AIFX Signal",
+    "date": "2026-03-10",
+    "summary": "More teams are treating AI authorship metadata as a default part of publishing workflows, especially where trust and auditability matter.",
+    "href": "https://github.com/AI-First-Exchange"
+  },
+  {
+    "id": "signal-2",
+    "title": "Creative pipelines need containers, not just tags",
+    "source": "AIFX Signal",
+    "date": "2026-03-07",
+    "summary": "Loose metadata fields cannot preserve linked assets, prompts, and integrity records across handoffs. Packaging is the missing layer.",
+    "href": "#formats"
+  },
+  {
+    "id": "signal-3",
+    "title": "Trust signals have to be readable by both humans and tools",
+    "source": "AIFX Signal",
+    "date": "2026-03-02",
+    "summary": "Adoption depends on standard formats that work for creators, viewing applications, archives, and automated validation systems.",
+    "href": "https://github.com/AI-First-Exchange"
+  }
+]
