@@ -46,7 +46,7 @@ const installGuides = [
             </p>
             <ol className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
               <li>
-                1. Open <strong className="text-white">Terminal</strong> (Applications -> Utilities -> Terminal)
+                1. Open <strong className="text-white">Terminal</strong> (Applications → Utilities → Terminal)
               </li>
               <li>2. Run the following command:</li>
             </ol>
