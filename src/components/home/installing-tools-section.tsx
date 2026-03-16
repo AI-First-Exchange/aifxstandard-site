@@ -26,6 +26,9 @@ function CopyableCommandBlock({ command }: { command: string }) {
 
   return (
     <div className="relative mt-3">
+      <pre className="overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 font-mono text-xs leading-6 text-sky-100 sm:text-sm">
+        <code>{command}</code>
+      </pre>
       <button
         type="button"
         onClick={() => void handleCopy()}
@@ -33,9 +36,6 @@ function CopyableCommandBlock({ command }: { command: string }) {
       >
         {isCopied ? "Copied" : "Copy"}
       </button>
-      <pre className="overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 font-mono text-xs leading-6 text-sky-100 sm:text-sm">
-        <code>{command}</code>
-      </pre>
     </div>
   );
 }
