@@ -45,6 +45,7 @@ function CopyableCommandBlock({ command }: { command: string }) {
 const installGuides = [
   {
     platform: "macOS",
+    summary: "DMG install and Terminal quarantine fix",
     body: (
       <div className="space-y-5">
         <ol className="space-y-3 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
@@ -93,6 +94,7 @@ const installGuides = [
   },
   {
     platform: "Windows",
+    summary: "Installer guidance and SmartScreen steps",
     body: (
       <div className="space-y-5">
         <p className="text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
@@ -123,6 +125,7 @@ const installGuides = [
   },
   {
     platform: "Linux",
+    summary: "AppImage commands for Desktop and Player",
     body: (
       <div className="space-y-5">
         <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
@@ -161,20 +164,46 @@ const installGuides = [
 ];
 
 export function InstallingToolsSection() {
+  const [openPlatform, setOpenPlatform] = useState<string | null>(null);
+
   return (
     <SectionShell
       title="Installing AIFX Tools"
       description="If your operating system blocks the application the first time you open it, follow the instructions below. These steps resolve the most common installation warnings on macOS, Windows, and Linux."
     >
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="space-y-4">
         {installGuides.map((guide) => (
-          <Card key={guide.platform} className="h-full p-6 sm:p-7">
-            <div className="space-y-4">
-              <p className="section-kicker text-xs font-semibold uppercase">
-                {guide.platform}
-              </p>
-              {guide.body}
-            </div>
+          <Card key={guide.platform} className="overflow-hidden p-0">
+            <button
+              type="button"
+              onClick={() =>
+                setOpenPlatform((current) =>
+                  current === guide.platform ? null : guide.platform,
+                )
+              }
+              aria-expanded={openPlatform === guide.platform}
+              className="flex w-full items-start justify-between gap-4 p-6 text-left transition hover:bg-white/[0.03] focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-sky-300 sm:p-7"
+            >
+              <div className="space-y-2">
+                <p className="section-kicker text-xs font-semibold uppercase">
+                  {guide.platform}
+                </p>
+                <p className="text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
+                  {guide.summary}
+                </p>
+              </div>
+              <span
+                aria-hidden="true"
+                className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[color:var(--line)] bg-white/[0.03] text-lg text-white/75 transition"
+              >
+                {openPlatform === guide.platform ? "−" : "+"}
+              </span>
+            </button>
+            {openPlatform === guide.platform ? (
+              <div className="border-t border-[color:var(--line)] px-6 pb-6 pt-5 sm:px-7 sm:pb-7">
+                {guide.body}
+              </div>
+            ) : null}
           </Card>
         ))}
       </div>
