@@ -1,6 +1,7 @@
 import { ContactSection } from "@/components/home/contact-section";
 import { FormatsOverviewSection } from "@/components/home/formats-overview-section";
 import { HeroSection } from "@/components/home/hero-section";
+import { InstallingToolsSection } from "@/components/home/installing-tools-section";
 import { OpenStandardCta } from "@/components/home/open-standard-cta";
 import { SignalSection } from "@/components/home/signal-section";
 import { SupportSection } from "@/components/home/support-section";
@@ -18,6 +19,7 @@ export function HomePage() {
         <WhyAifxSection />
         <FormatsOverviewSection />
         <ToolsOverviewSection />
+        <InstallingToolsSection />
         <SignalSection />
         <OpenStandardCta />
         <SupportSection />
