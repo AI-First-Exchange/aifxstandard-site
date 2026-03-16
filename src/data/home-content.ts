@@ -43,8 +43,8 @@ export type PlatformDownload = {
 export const navItems: NavItem[] = [
   { href: "#formats", label: "Formats" },
   { href: "#tools", label: "Tools" },
-  { href: "#signal", label: "AIFX Signal" },
-  { href: "#support", label: "Support" },
+  { href: "#signal", label: "Signal" },
+  { href: "#support", label: "Support AIFX" },
 ];
 
 export const whyAifxCards: WhyCard[] = [

@@ -13,8 +13,9 @@ export function SupportSection() {
       <Card className="max-w-3xl p-7 sm:p-8">
         <div className="space-y-5">
           <p className="text-[0.98rem] leading-7 text-[var(--muted)] sm:text-[1.02rem]">
-            Support helps fund development of the formats, tools, and
-            documentation that power the AIFX ecosystem.
+            Contributions support the ongoing development of the AIFX
+            standard, reference tools, and open documentation for
+            AI-generated media.
           </p>
           <a
             href="https://github.com/sponsors/AI-First-Exchange"
