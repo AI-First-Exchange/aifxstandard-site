@@ -26,16 +26,18 @@ function CopyableCommandBlock({ command }: { command: string }) {
 
   return (
     <div className="relative mt-3">
-      <pre className="overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 font-mono text-xs leading-6 text-sky-100 sm:text-sm">
+      <div className="mb-2 flex justify-end">
+        <button
+          type="button"
+          onClick={() => void handleCopy()}
+          className="button-secondary rounded-full border border-[color:var(--line)] bg-white/[0.04] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/80 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+        >
+          {isCopied ? "Copied" : "Copy"}
+        </button>
+      </div>
+      <pre className="overflow-x-auto rounded-xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 font-mono text-xs leading-6 text-sky-100 sm:text-sm">
         <code>{command}</code>
       </pre>
-      <button
-        type="button"
-        onClick={() => void handleCopy()}
-        className="button-secondary absolute top-2 right-2 rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/80 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
-      >
-        {isCopied ? "Copied" : "Copy"}
-      </button>
     </div>
   );
 }
@@ -46,53 +48,44 @@ const installGuides = [
     body: (
       <div className="space-y-5">
         <ol className="space-y-3 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-          <li>1. Download the AIFX Desktop DMG file.</li>
           <li>
-            2. Open the DMG and drag <strong className="text-white">AIFX Desktop</strong> to your{" "}
+            1. Download the DMG file for <strong className="text-white">AIFX Desktop</strong> (
+            <strong className="text-white">AIFX-Desktop-macOS-universal.dmg</strong>) or{" "}
+            <strong className="text-white">AIFX Player</strong> (
+            <strong className="text-white">AIFX.Player.dmg</strong>).
+          </li>
+          <li>
+            2. Open the DMG and drag the application to the{" "}
             <strong className="text-white">Applications</strong> folder.
           </li>
-          <li>3. If macOS prevents the app from opening, use one of these options:</li>
+          <li>
+            3. macOS may block newly published apps. If it prevents the app from opening, open{" "}
+            <strong className="text-white">Terminal</strong> and run the appropriate command below.
+          </li>
+          <li>4. Launch the application again.</li>
         </ol>
 
         <div className="space-y-4">
           <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
             <p className="section-kicker text-[0.68rem] font-semibold uppercase">
-              Option A
+              AIFX Desktop
             </p>
-            <p className="mt-2 text-sm font-semibold text-white">
-              Right-click and open
+            <p className="mt-2 text-sm font-semibold text-white">Terminal command</p>
+            <p className="mt-3 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
+              Use this after installing <strong className="text-white">AIFX-Desktop-macOS-universal.dmg</strong>.
             </p>
-            <ul className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-              <li>
-                Right-click the <strong className="text-white">AIFX Desktop</strong> application in the Applications
-                folder
-              </li>
-              <li>
-                Click <strong className="text-white">Open</strong>
-              </li>
-              <li>
-                Click <strong className="text-white">Open</strong> again when prompted
-              </li>
-            </ul>
+            <CopyableCommandBlock command={'xattr -d com.apple.quarantine "/Applications/AIFX Desktop.app"'} />
           </div>
 
           <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
             <p className="section-kicker text-[0.68rem] font-semibold uppercase">
-              Option B
+              AIFX Player
             </p>
-            <p className="mt-2 text-sm font-semibold text-white">
-              Terminal method
-            </p>
-            <ol className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-              <li>
-                1. Open <strong className="text-white">Terminal</strong> (Applications → Utilities → Terminal)
-              </li>
-              <li>2. Run the following command:</li>
-            </ol>
-            <CopyableCommandBlock command={'xattr -d com.apple.quarantine "/Applications/AIFX Desktop.app"'} />
+            <p className="mt-2 text-sm font-semibold text-white">Terminal command</p>
             <p className="mt-3 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-              3. Launch the application again.
+              Use this after installing <strong className="text-white">AIFX.Player.dmg</strong>.
             </p>
+            <CopyableCommandBlock command={'xattr -d com.apple.quarantine "/Applications/AIFX Player.app"'} />
           </div>
         </div>
       </div>
@@ -103,17 +96,19 @@ const installGuides = [
     body: (
       <div className="space-y-5">
         <p className="text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-          Windows SmartScreen may appear for new open-source applications.
+          Download <strong className="text-white">AIFX-Desktop-Windows-x64.exe</strong> for AIFX Desktop or{" "}
+          <strong className="text-white">AIFX-Player-Setup.exe</strong> for AIFX Player. Windows SmartScreen may
+          appear for new open-source applications.
         </p>
         <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
           <p className="text-sm font-semibold text-white">If you see a warning:</p>
           <ol className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-            <li>1. Right-click the downloaded installer.</li>
+            <li>1. Download the installer.</li>
             <li>
-              2. Select <strong className="text-white">Open</strong>.
+              2. Run the installer.
             </li>
             <li>
-              3. If SmartScreen appears, click <strong className="text-white">More info</strong>.
+              3. If Windows SmartScreen appears, click <strong className="text-white">More info</strong>.
             </li>
             <li>
               4. Click <strong className="text-white">Run anyway</strong>.
@@ -130,27 +125,34 @@ const installGuides = [
     platform: "Linux",
     body: (
       <div className="space-y-5">
-        <p className="text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-          AIFX Desktop and Player are distributed as <strong className="text-white">AppImage</strong> files.
-        </p>
         <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
-          <p className="text-sm font-semibold text-white">File manager method</p>
+          <p className="text-sm font-semibold text-white">AIFX Desktop</p>
           <ol className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-            <li>1. Download the AppImage file.</li>
-            <li>2. Right-click the file and open Properties.</li>
-            <li>3. Enable Allow executing file as program.</li>
-          </ol>
-        </div>
-        <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
-          <p className="text-sm font-semibold text-white">Terminal method</p>
-          <ol className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
-            <li>1. Open Terminal.</li>
-            <li>2. Navigate to the download folder.</li>
-            <li>3. Run:</li>
+            <li>
+              1. Download the AppImage file for <strong className="text-white">AIFX Desktop</strong> (
+              <strong className="text-white">AIFX-Desktop-Linux-x86_64.AppImage</strong>).
+            </li>
+            <li>2. Open Terminal.</li>
+            <li>3. Run the appropriate command below.</li>
           </ol>
           <CopyableCommandBlock
-            command={`chmod +x AIFXDesktop.AppImage
-./AIFXDesktop.AppImage`}
+            command={`chmod +x AIFX-Desktop-Linux-x86_64.AppImage
+./AIFX-Desktop-Linux-x86_64.AppImage`}
+          />
+        </div>
+        <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
+          <p className="text-sm font-semibold text-white">AIFX Player</p>
+          <ol className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
+            <li>
+              1. Download the AppImage file for <strong className="text-white">AIFX Player</strong> (
+              <strong className="text-white">AIFX.Player-0.3.0-x86_64.AppImage</strong>).
+            </li>
+            <li>2. Open Terminal.</li>
+            <li>3. Run the appropriate command below.</li>
+          </ol>
+          <CopyableCommandBlock
+            command={`chmod +x AIFX.Player-0.3.0-x86_64.AppImage
+./AIFX.Player-0.3.0-x86_64.AppImage`}
           />
         </div>
       </div>
