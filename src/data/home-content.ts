@@ -136,17 +136,17 @@ export const toolCards: ToolCard[] = [
     downloads: {
       mac: {
         label: "macOS",
-        href: "https://github.com/AI-First-Exchange/aifx-desktop/releases/download/v0.3.0/AIFX.Desktop.dmg",
+        href: "https://github.com/AI-First-Exchange/aifx-desktop/releases/download/v0.4.1/AIFX-Desktop-macOS-universal.dmg",
         status: "Available now",
       },
       windows: {
         label: "Windows",
-        href: "https://github.com/AI-First-Exchange/aifx-desktop/releases/download/v0.3.0/AIFX-Desktop-Setup.exe",
+        href: "https://github.com/AI-First-Exchange/aifx-desktop/releases/download/v0.4.1/AIFX-Desktop-Windows-x64.exe",
         status: "Available now",
       },
       linux: {
         label: "Linux",
-        href: "https://github.com/AI-First-Exchange/aifx-desktop/releases/download/v0.3.0/AIFX.Desktop-x86_64.AppImage",
+        href: "https://github.com/AI-First-Exchange/aifx-desktop/releases/download/v0.4.1/AIFX-Desktop-Linux-x86_64.AppImage",
         status: "Available now",
       },
     },
