@@ -1,5 +1,44 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { SectionShell } from "@/components/layout/section-shell";
 import { Card } from "@/components/ui/card";
+
+function CopyableCommandBlock({ command }: { command: string }) {
+  const [isCopied, setIsCopied] = useState(false);
+
+  useEffect(() => {
+    if (!isCopied) {
+      return undefined;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setIsCopied(false);
+    }, 1500);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [isCopied]);
+
+  async function handleCopy() {
+    await navigator.clipboard.writeText(command);
+    setIsCopied(true);
+  }
+
+  return (
+    <div className="relative mt-3">
+      <button
+        type="button"
+        onClick={() => void handleCopy()}
+        className="button-secondary absolute top-3 right-3 rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/80 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+      >
+        {isCopied ? "Copied" : "Copy"}
+      </button>
+      <pre className="overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 pr-20 text-xs leading-6 text-sky-100 sm:text-sm">
+        <code>{command}</code>
+      </pre>
+    </div>
+  );
+}
 
 const installGuides = [
   {
@@ -50,9 +89,7 @@ const installGuides = [
               </li>
               <li>2. Run the following command:</li>
             </ol>
-            <pre className="mt-3 overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 text-xs leading-6 text-sky-100 sm:text-sm">
-              <code>xattr -d com.apple.quarantine "/Applications/AIFX Desktop.app"</code>
-            </pre>
+            <CopyableCommandBlock command={'xattr -d com.apple.quarantine "/Applications/AIFX Desktop.app"'} />
             <p className="mt-3 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
               3. Launch the application again.
             </p>
@@ -111,10 +148,10 @@ const installGuides = [
             <li>2. Navigate to the download folder.</li>
             <li>3. Run:</li>
           </ol>
-          <pre className="mt-3 overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 text-xs leading-6 text-sky-100 sm:text-sm">
-            <code>{`chmod +x AIFXDesktop.AppImage
-./AIFXDesktop.AppImage`}</code>
-          </pre>
+          <CopyableCommandBlock
+            command={`chmod +x AIFXDesktop.AppImage
+./AIFXDesktop.AppImage`}
+          />
         </div>
       </div>
     ),
