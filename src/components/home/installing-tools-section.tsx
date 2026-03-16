@@ -29,11 +29,11 @@ function CopyableCommandBlock({ command }: { command: string }) {
       <button
         type="button"
         onClick={() => void handleCopy()}
-        className="button-secondary absolute top-3 right-3 rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/80 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+        className="button-secondary absolute top-2 right-2 rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-white/80 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
       >
         {isCopied ? "Copied" : "Copy"}
       </button>
-      <pre className="overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 pr-20 text-xs leading-6 text-sky-100 sm:text-sm">
+      <pre className="overflow-x-auto rounded-2xl border border-white/8 bg-[var(--background-strong)] px-4 py-3 font-mono text-xs leading-6 text-sky-100 sm:text-sm">
         <code>{command}</code>
       </pre>
     </div>
