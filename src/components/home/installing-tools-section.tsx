@@ -42,12 +42,33 @@ function CopyableCommandBlock({ command }: { command: string }) {
   );
 }
 
+function TutorialVideo({
+  videoId,
+  title,
+}: {
+  videoId: string;
+  title: string;
+}) {
+  return (
+    <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/8">
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="h-full w-full"
+      />
+    </div>
+  );
+}
+
 const installGuides = [
   {
     platform: "macOS",
     summary: "DMG install and Terminal quarantine fix",
     body: (
       <div className="space-y-5">
+        <TutorialVideo videoId="67Wv59dPdNs" title="AIFX Installation for macOS" />
         <ol className="space-y-3 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
           <li>
             1. Download the DMG file for <strong className="text-white">AIFX Desktop</strong> (
@@ -97,6 +118,7 @@ const installGuides = [
     summary: "Installer guidance and SmartScreen steps",
     body: (
       <div className="space-y-5">
+        <TutorialVideo videoId="iY74h-SIgUA" title="AIFX Installation for Windows" />
         <p className="text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
           Download <strong className="text-white">AIFX-Desktop-Windows-x64.exe</strong> for AIFX Desktop or{" "}
           <strong className="text-white">AIFX-Player-Setup.exe</strong> for AIFX Player. Windows SmartScreen may
@@ -128,6 +150,7 @@ const installGuides = [
     summary: "AppImage commands for Desktop and Player",
     body: (
       <div className="space-y-5">
+        <TutorialVideo videoId="b0xkh4yzK-A" title="AIFX Installation for Linux" />
         <div className="rounded-2xl border border-[color:var(--line)] bg-white/[0.03] p-4">
           <p className="text-sm font-semibold text-white">AIFX Desktop</p>
           <ol className="mt-3 space-y-2 text-sm leading-7 text-[var(--muted)] sm:text-[0.98rem]">
